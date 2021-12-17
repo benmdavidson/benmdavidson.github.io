@@ -1,4 +1,5 @@
-## An Analytical Approach to MLB Hall of Fame Induction
+## An Analytical Approach to 
+## MLB Hall of Fame Induction
 
 You can use the [editor on GitHub](https://github.com/benmdavidson/benmdavidson.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
