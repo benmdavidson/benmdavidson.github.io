@@ -16358,7 +16358,7 @@ Let's begin with observing hits per at bat by position players. This is similar 
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/tmp/ipykernel_4453/2297693002.py:3: SettingWithCopyWarning: 
+<pre>/tmp/ipykernel_4974/2297693002.py:3: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -16457,7 +16457,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/tmp/ipykernel_4453/599681947.py:3: SettingWithCopyWarning: 
+<pre>/tmp/ipykernel_4974/599681947.py:3: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -16561,7 +16561,7 @@ Next let's take a look at pitching statistics for which we'll examine ERA (earne
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/tmp/ipykernel_4453/1673531288.py:3: SettingWithCopyWarning: 
+<pre>/tmp/ipykernel_4974/1673531288.py:3: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -16745,7 +16745,7 @@ We will use sklearn and a k-NN model to classify write a Hall of Fame classifier
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Accuracy = 98.686%
+<pre>Accuracy = 98.733%
 </pre>
 </div>
 </div>
@@ -16792,7 +16792,7 @@ We will use sklearn and a k-NN model to classify write a Hall of Fame classifier
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Accuracy = 98.999%
+<pre>Accuracy = 99.45%
 </pre>
 </div>
 </div>
@@ -16866,9 +16866,9 @@ Let's examine accuracy for just the hall of famers and just the non-Hall of Fame
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>HoF position players accuracy      = 40.252%
-HoF pitchers accuracy              = 41.667%
-Non-HoF position players accuracy  = 99.79%
+<pre>HoF position players accuracy      = 45.912%
+HoF pitchers accuracy              = 42.708%
+Non-HoF position players accuracy  = 99.733%
 Non-HoF pitchers accuracy          = 99.848%
 </pre>
 </div>
@@ -16881,17 +16881,31 @@ Non-HoF pitchers accuracy          = 99.848%
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Results-and-Discussion">Results and Discussion<a class="anchor-link" href="#Results-and-Discussion">&#182;</a></h3><h4 id="Model-Performance:">Model Performance:<a class="anchor-link" href="#Model-Performance:">&#182;</a></h4><p>Wow! These numbers are very surprising, our model is incredibly poor for Hall of Fame players but it is exceptional at predicting Non-HoF players. This shows us that the model is conservative in predicting hall of famers, why may this be?
+<h3 id="Results-and-Discussion">Results and Discussion<a class="anchor-link" href="#Results-and-Discussion">&#182;</a></h3><p>Wow! These numbers are very surprising, our model is incredibly poor for Hall of Fame players but it is exceptional at predicting Non-HoF players. This shows us that the model is conservative in predicting hall of famers, why may this be?
 <br><br>
-I believe part of the problem is that there are very many exceptional players that have not been entered into the HoF for a few reasons:<br></p>
-<h5 id="1)">1)<a class="anchor-link" href="#1)">&#182;</a></h5><p>Inductions are incredibly selective. Somewhere between 2-5 players are inducted each year. There are about 1,000 active players in the MLB at any given time! That means that something has to give, there will be great players that won't be inducted that will throw off our model.<br><br></p>
-<h5 id="2)">2)<a class="anchor-link" href="#2)">&#182;</a></h5><p>Players must wait 5 years after retirement to be eligble for induction. This means that there are future hall of famers with hall of fame quality stats that are labeled as non-hall of famers in our training set. This mislabeling will throw off our model.<br><br></p>
-<h5 id="3)">3)<a class="anchor-link" href="#3)">&#182;</a></h5><p>Real life hall of fame induction is a human process that takes intangible factors into account when selecting new inductees. Notable MLB writers vote for who they think deserves to be inducted each year. They will take into account (consciously or not) intangibles like leadership, attitude, effort, and communication that is not (and cannot) be quantified in our dataset. The lack of this knowledge will throw off the model and decrease accuracy.<br><br>
+I believe part of the problem is that there are very many exceptional players that have not been entered into the HoF for a few reasons:<br>
+1) Inductions are incredibly selective. Somewhere between 2-5 players are inducted each year. There are about 1,000 active players in the MLB at any given time! That means that something has to give, there will be great players that won't be inducted that will throw off our model.<br><br>
+2) Players must wait 5 years after retirement to be eligble for induction. This means that there are future hall of famers with hall of fame quality stats that are labeled as non-hall of famers in our training set. This mislabeling will throw off our model.<br><br>
+3) Real life hall of fame induction is a human process that takes intangible factors into account when selecting new inductees. Notable MLB writers vote for who they think deserves to be inducted each year. They will take into account (consciously or not) intangibles like leadership, attitude, effort, and communication that is not (and cannot) be quantified in our dataset. The lack of this knowledge will throw off the model and decrease accuracy.<br><br>
 For these reasons the model is very conservative in its Hall of Fame award. Repairing these issues are challenging. The only bullet that could be potentially fixed is #2. We could remove all data from players that have not been retired for at least 5 years. The problem with this approach is that we will be erasing decades of data from thousands of players and relying on historic data from over a decade ago. The game of baseball is ever-changing and we would be losing that if we removed data. It's tough to say which approach would yield a better result and is something that could be debated.<br><br>
 In conclusion this project was very enlightening for me as a Data Scientist. I mainly gained an insight into the challenges of real-world data. Academic projects almost always are designed such that they work out nicely and for that reason there is an expectation of a great result. When I realized that the model is very conservative and has flaws that is something that was difficult to deal.<br><br>
 Overall though, this endeavour was very enlightening and gave me hands on experience with taking a project from start to finish, which is incredibly rewarding.</p>
 
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 
