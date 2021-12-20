@@ -17227,9 +17227,18 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="MLB-Hall-of-Fame-Criteria---An-Analytical-Approach">MLB Hall of Fame Criteria - An Analytical Approach<a class="anchor-link" href="#MLB-Hall-of-Fame-Criteria---An-Analytical-Approach">&#182;</a></h1><h1 id="Author:-Ben-Davidson">Author: Ben Davidson<a class="anchor-link" href="#Author:-Ben-Davidson">&#182;</a></h1><h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>In this tutorial I will provide a walkthrough of the entire Data Science pipeline all the way from data retrieval to building a machine learning classifier! The application will be to analyze criteria for players being inducted to the MLB Baseball Hall of Fame. There are 20,000 humans to step foot in the MLB but only a few hundred are deemed worthy of the Hall of Fame. What are the main features of a baseball player that makes them exceptional? In the real world, the decision for who gets inducted is left to members of the Press who each year get a ballot and subjectively choose the players they deem worthy. In this page I will take a data driven approach to define an unbiased criteria for Hall of Fame worthiness and use these results to build a classifier to predict future Hall of Famers.<br><br>
+<h1 id="MLB-Hall-of-Fame-Criteria---An-Analytical-Approach">MLB Hall of Fame Criteria - An Analytical Approach<a class="anchor-link" href="#MLB-Hall-of-Fame-Criteria---An-Analytical-Approach">&#182;</a></h1><h1 id="Author:-Benjamin-Davidson">Author: Benjamin Davidson<a class="anchor-link" href="#Author:-Benjamin-Davidson">&#182;</a></h1><h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>In this tutorial I will provide a walkthrough of the entire Data Science pipeline all the way from data retrieval to building a machine learning classifier! The application will be to analyze criteria for players being inducted to the MLB Baseball Hall of Fame. There are 20,000 humans to step foot in the MLB but only a few hundred are deemed worthy of the Hall of Fame. What are the main features of a baseball player that makes them exceptional? In the real world, the decision for who gets inducted is left to members of the Press who each year get a ballot and subjectively choose the players they deem worthy. In this page I will take a data driven approach to define an unbiased criteria for Hall of Fame worthiness and use these results to build a classifier to predict future Hall of Famers.<br><br>
 I will be using data courtesy of Sean Lahman <a href="http://www.seanlahman.com/baseball-archive/statistics/">Link to dataset</a><br>
-I will employ the use of popular Data Science libraries such as Pandas, Numpy, Matplotlib and sklearn.</p>
+I will employ the use of popular Data Science libraries such as Pandas, Numpy, Matplotlib and sklearn.
+<br><br></p>
+<h5>Below are some additional links you may find useful for your understanding:<br><br></h5>
+<h5 id="General-Baseball-Information:">General Baseball Information:<a class="anchor-link" href="#General-Baseball-Information:">&#182;</a></h5><p><a href="https://baseballhall.org/hall-of-famers/rules/bbwaa-rules-for-election">MLB Hall of Fame election process</a><br>
+<a href="https://www.baseball-reference.com/">Baseball statistics</a><br>
+<a href="https://www.baseball-almanac.com/">Baseball history and stats</a><br><br></p>
+<h5 id="Python-Libraries:">Python Libraries:<a class="anchor-link" href="#Python-Libraries:">&#182;</a></h5><p><a href="https://pandas.pydata.org/">Pandas</a><br>
+<a href="https://numpy.org/doc/stable/index.html">Numpy</a><br>
+<a href="https://matplotlib.org/">Matplotlib</a><br>
+<a href="https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html">scikit-learn</a></p>
 
 </div>
 </div>
@@ -19592,7 +19601,7 @@ Let's begin with observing hits per at bat by position players. This is similar 
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/tmp/ipykernel_3188/2297693002.py:3: SettingWithCopyWarning: 
+<pre>/tmp/ipykernel_3859/2297693002.py:3: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -19691,7 +19700,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/tmp/ipykernel_3188/599681947.py:3: SettingWithCopyWarning: 
+<pre>/tmp/ipykernel_3859/599681947.py:3: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -19795,7 +19804,7 @@ Next let's take a look at pitching statistics for which we'll examine ERA (earne
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/tmp/ipykernel_3188/1673531288.py:3: SettingWithCopyWarning: 
+<pre>/tmp/ipykernel_3859/1673531288.py:3: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -19979,7 +19988,7 @@ We will use sklearn and a k-NN model to classify write a Hall of Fame classifier
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Accuracy = 98.451%
+<pre>Accuracy = 98.358%
 </pre>
 </div>
 </div>
@@ -20026,7 +20035,7 @@ We will use sklearn and a k-NN model to classify write a Hall of Fame classifier
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Accuracy = 99.15%
+<pre>Accuracy = 99.35%
 </pre>
 </div>
 </div>
@@ -20100,10 +20109,10 @@ Let's examine accuracy for just the hall of famers and just the non-Hall of Fame
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>HoF position players accuracy      = 46.541%
-HoF pitchers accuracy              = 42.708%
-Non-HoF position players accuracy  = 99.714%
-Non-HoF pitchers accuracy          = 99.889%
+<pre>HoF position players accuracy      = 42.138%
+HoF pitchers accuracy              = 44.792%
+Non-HoF position players accuracy  = 99.781%
+Non-HoF pitchers accuracy          = 99.859%
 </pre>
 </div>
 </div>
